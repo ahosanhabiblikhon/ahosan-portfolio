@@ -2,7 +2,16 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Mail, MapPin, Send, Github, Facebook, Instagram, Linkedin, Camera } from 'lucide-react'
+import {
+  Mail,
+  MapPin,
+  Send,
+  Github,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Camera,
+} from 'lucide-react'
 import { useState } from 'react'
 
 const contactInfo = [
@@ -21,11 +30,36 @@ const contactInfo = [
 ]
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com/ahosanhabiblikhon', label: 'GitHub', color: 'hover:text-gray-900 dark:hover:text-white' },
-  { icon: Facebook, href: 'https://www.facebook.com/ahosan.habib.likhon.nur', label: 'Facebook', color: 'hover:text-blue-600' },
-  { icon: Instagram, href: 'https://www.instagram.com/ahosan_habib_likhon', label: 'Instagram', color: 'hover:text-pink-600' },
-  { icon: Camera, href: 'https://instagram.com/ahosan.photo', label: 'Photography', color: 'hover:text-purple-600' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/md-ahosan-habib-likhon-84707a295/', label: 'LinkedIn', color: 'hover:text-blue-700' },
+  {
+    icon: Github,
+    href: 'https://github.com/ahosanhabiblikhon',
+    label: 'GitHub',
+    color: 'hover:text-gray-900 dark:hover:text-white',
+  },
+  {
+    icon: Facebook,
+    href: 'https://www.facebook.com/ahosan.habib.likhon.nur',
+    label: 'Facebook',
+    color: 'hover:text-blue-600',
+  },
+  {
+    icon: Instagram,
+    href: 'https://www.instagram.com/ahosan_habib_likhon',
+    label: 'Instagram',
+    color: 'hover:text-pink-600',
+  },
+  {
+    icon: Camera,
+    href: 'https://instagram.com/ahosan.photo',
+    label: 'Photography',
+    color: 'hover:text-purple-600',
+  },
+  {
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/in/md-ahosan-habib-likhon-84707a295/',
+    label: 'LinkedIn',
+    color: 'hover:text-blue-700',
+  },
 ]
 
 export default function Contact() {
@@ -47,15 +81,22 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
 
-    // Simulate form submission
     setTimeout(() => {
       setStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      })
+
       setTimeout(() => setStatus(''), 3000)
     }, 1000)
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -63,7 +104,11 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="py-20 bg-white dark:bg-gray-950">
+    <section
+      id="contact"
+      ref={ref}
+      className="py-20 bg-white dark:bg-gray-950"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,12 +119,12 @@ export default function Contact() {
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             Get in <span className="gradient-text-blue">Touch</span>
           </h2>
+
           <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Have a question or want to work together? Feel free to reach out!
           </p>
         </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
+               <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -88,15 +133,25 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                Contact Information
+              </h3>
+
               <div className="space-y-4">
                 {contactInfo.map((info) => (
-                  <div key={info.title} className="flex items-start space-x-4">
+                  <div
+                    key={info.title}
+                    className="flex items-start space-x-4"
+                  >
                     <div className="w-12 h-12 bg-primary-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <info.icon className="w-6 h-6 text-primary-500" />
                     </div>
+
                     <div>
-                      <h4 className="font-semibold mb-1">{info.title}</h4>
+                      <h4 className="font-semibold mb-1">
+                        {info.title}
+                      </h4>
+
                       {info.link ? (
                         <a
                           href={info.link}
@@ -105,7 +160,9 @@ export default function Contact() {
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-600 dark:text-gray-400">{info.value}</p>
+                        <p className="text-gray-600 dark:text-gray-400">
+                          {info.value}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -114,7 +171,10 @@ export default function Contact() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-bold mb-6">Connect With Me</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                Connect With Me
+              </h3>
+
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social) => (
                   <a
@@ -132,9 +192,16 @@ export default function Contact() {
             </div>
 
             <div className="glass-dark rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-4">Let's Create Together</h3>
+              <h3 className="text-xl font-bold mb-4">
+                Let&apos;s Create Together
+              </h3>
+
               <p className="text-gray-600 dark:text-gray-400">
-                Whether you're interested in collaborating on a web development project, discussing biotechnology research, or exploring photography opportunities, I'd love to hear from you. Let's connect and create something amazing together!
+                Whether you&apos;re interested in collaborating on a web
+                development project, discussing biotechnology research,
+                or exploring photography opportunities, I&apos;d love
+                to hear from you. Let&apos;s connect and create
+                something amazing together!
               </p>
             </div>
           </motion.div>
@@ -145,11 +212,18 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <form onSubmit={handleSubmit} className="glass-dark rounded-2xl p-8 space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2">
+            <form
+              onSubmit={handleSubmit}
+              className="glass-dark rounded-2xl p-8 space-y-6"
+            > 
+                            <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium mb-2"
+                >
                   Name
                 </label>
+
                 <input
                   type="text"
                   id="name"
@@ -163,9 +237,13 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
                   Email
                 </label>
+
                 <input
                   type="email"
                   id="email"
@@ -179,9 +257,13 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium mb-2"
+                >
                   Subject
                 </label>
+
                 <input
                   type="text"
                   id="subject"
@@ -190,14 +272,18 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
-                  placeholder="What's this about?"
+                  placeholder="What&apos;s this about?"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium mb-2"
+                >
                   Message
                 </label>
+
                 <textarea
                   id="message"
                   name="message"
